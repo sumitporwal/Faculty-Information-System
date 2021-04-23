@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ <link href="../../static/css/app.css" rel="stylesheet">
+<title>Insert title here</title>
+</head>
+<body>
+
+   <div class="container">
+    <nav id="sidebar" class="sidebar" th:fragment="sidebar">
+			<div class="sidebar-content js-simplebar">
+				<a class="sidebar-brand" href="index.html">
+          <span class="align-middle">Admin</span>
+        </a>
+
+				<ul class="sidebar-nav">
+					
+                   <li class="sidebar-item">
+					<a href="#ui" data-toggle="collapse" class="sidebar-link collapsed">
+              <i class="align-middle" data-feather="briefcase"></i> <span class="align-middle">Dashboard</span>
+            </a>
+						<ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+							<li class="sidebar-item"><a class="sidebar-link" th:href="@{/admin/teacherdashboard}">Faculty</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" th:href="@{/admin/studentdashboard}">Student</a></li>
+							
+						</ul>
+					</li>
+		
+							
+					
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" th:href="@{/admin/profile}">
+              <i class="align-middle" data-feather="user"></i> <span class="align-middle"> Own Profile</span>
+            </a>
+					</li>
+
+					<li class="sidebar-item">
+						<a href="#leaveapplication" data-toggle="collapse" class="sidebar-link collapsed">
+              <i class="align-middle" data-feather="briefcase"></i> <span class="align-middle">Leave Application</span>
+            </a>
+						<ul id="leaveapplication" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+							<li class="sidebar-item"><a class="sidebar-link" th:href="@{/admin/leaveapplication}">Approve/Reject Application</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" th:href="@{/admin/ownleaveapplication}">Own Leave Application</a></li>
+							
+						</ul>
+					</li>
+					
+					<li class="sidebar-item">
+						<a th:href="@{/admin/notifications}"  class="sidebar-link">
+              <i class="align-middle" data-feather="briefcase"></i> <span class="align-middle">Notifications</span>
+            </a>
+					</li>
+
+					<li class="sidebar-item">
+						<a th:href="@{/admin/vacancy}" class="sidebar-link">
+              <i class="align-middle" data-feather="check-circle"></i> <span class="align-middle">Vacancy</span>
+            </a>
+					</li>
+
+					<li class="sidebar-item">
+						<a th:href="@{/admin/bus}"  class="sidebar-link">
+              <i class="align-middle" data-feather="list"></i> <span class="align-middle">Bus Management</span>
+            </a>
+					</li>
+
+					
+
+					
+					
+				</ul>
+
+				
+			</div>
+		</nav>
+	</div>
+</body>
+</html>

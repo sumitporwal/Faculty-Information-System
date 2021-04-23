@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Web UI Kit &amp; Dashboard Template based on Bootstrap">
+	<meta name="author" content="AdminKit">
+	<meta name="keywords" content="adminkit, bootstrap, web ui kit, dashboard template, admin template">
+
+	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+
+	<title>Notifications | Faculty</title>
+
+     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+     <!-- CSS only -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+       <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.2.0/mdb.min.css"
+  rel="stylesheet"
+/>
+
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="../../static/js/vendor.js"></script>
+	 <script src="../../static/js/app.js"></script>	
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap5.min.js"></script>
+     
+     
+    <link href="../../static/css/app.css" rel="stylesheet">
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('.example-multiple-selected').multiselect({
+          includeSelectAllOption: true,
+        });
+    });
+   </script>
+               
+</head>
+<style>
+body {
+        color: #566787;
+		background: #f5f5f5;
+		font-family: 'Varela Round', sans-serif;
+		font-size: 13px;
+	}
+.content{
+  padding: 1rem 1rem 0rem;
+}
+.table-responsive {
+    margin: 0px 0;
+    width: 100%;
+}
+#example_wrapper{
+   overflow: hidden;
+}
+div.table-responsive>div.dataTables_wrapper>div.row{
+   overflow: auto;
+}
+	.table-wrapper {
+        background: #fff;
+        padding: 20px 15px;
+		border-radius: 3px;
+        box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    }
+	
+	.table-title {        
+		padding-bottom: 15px;
+		background: #5375a7;
+		color: #fff;
+		padding: 16px 30px;
+		margin: -20px -16px 5px;
+		border-radius: 3px 3px 0 0;
+    }
+    .table-title h2 {
+		margin: 5px 0 0;
+		font-size: 24px;
+	}
+	.table-title .btn-group {
+		float: right;
+                                  
+	}
+	.table-title .btn {
+		color: #fff;
+		float: right;
+		font-size: 13px;
+		border: none;
+		min-width: 50px;
+		border-radius: 2px;
+		border: none;
+		outline: none !important;
+		margin-left: 10px;
+	}
+	.table-title .btn i {
+		float: left;
+		font-size: 21px;
+		margin-right: 5px;
+	}
+	.table-title .btn span {
+		float: left;
+		margin-top: 2px;
+	}
+	table{
+      white-space:nowrap;
+	}
+	table.table tr th{
+	   color: black;
+	   font-weight: 600;
+	   white-space:nowrap;
+	}
+    table.table tr th, table.table tr td {
+        border-color: #e9e9e9;
+		padding: 8px 4px;
+		vertical-align: middle;
+		max-width: 300px;
+    }
+	table.table tr th:first-child {
+		width: 60px;
+	}
+	table.table tr th:last-child {
+		width: 100px;
+	}
+    table.table-striped tbody tr:nth-of-type(odd) {
+    	background-color: #fcfcfc;
+	}
+	table.table-striped.table-hover tbody tr:hover {
+		background: #f5f5f5;
+	}
+    table.table th i {
+        font-size: 13px;
+        margin: 0 15px;
+        cursor: pointer;
+    }	
+    table.table td:last-child i {
+		opacity: 0.9;
+		font-size: 22px;
+        margin: 0 5px;
+    }
+	table.table td a {
+		font-weight: 400;
+		color: #566787;
+		display: inline-block;
+		text-decoration: none;
+		outline: none !important;
+	}
+	table.table td a:hover {
+		color: #2196F3;
+	}
+	table.table td a.edit {
+        color: #FFC107;
+    }
+    table.table td a.delete {
+        color: #F44336;
+    }
+    table.table td i {
+        font-size: 13px;
+    }
+	table.table .avatar {
+		border-radius: 50%;
+		vertical-align: middle;
+		margin-right: 10px;
+	}
+    .pagination {
+        float: right;
+        margin: 0 0 5px;
+    }
+    .pagination li a {
+        border: none;
+        font-size: 13px;
+        min-width: 30px;
+        min-height: 30px;
+        color: #999;
+        margin: 0 2px;
+        line-height: 30px;
+        border-radius: 2px !important;
+        text-align: center;
+        padding: 0 6px;
+    }
+    .pagination li a:hover {
+        color: #666;
+    }	
+    .pagination li.active a, .pagination li.active a.page-link {
+        background: #03A9F4;
+    }
+    .pagination li.active a:hover {        
+        background: #0397d6;
+    }
+	.pagination li.disabled i {
+        color: #ccc;
+    }
+    .pagination li i {
+        font-size: 16px;
+        padding-top: 6px
+    }
+    .hint-text {
+        float: left;
+        margin-top: 10px;
+        font-size: 13px;
+    }    
+	
+	/* Modal styles */
+	.modal .modal-dialog {
+		max-width: 400px;
+	}
+	.modal .modal-header, .modal .modal-body, .modal .modal-footer {
+		padding: 20px 30px;
+	}
+	.modal .modal-content {
+		border-radius: 3px;
+	}
+	.modal .modal-footer {
+		background: #ecf0f1;
+		border-radius: 0 0 3px 3px;
+	}
+    .modal .modal-title {
+        display: inline-block;
+    }
+	.modal .form-control {
+		border-radius: 2px;
+		box-shadow: none;
+		border-color: #dddddd;
+	}
+	.modal textarea.form-control {
+		resize: vertical;
+	}
+	.modal .btn {
+		border-radius: 2px;
+		min-width: 100px;
+	}	
+	.modal form label {
+		font-weight: normal;
+	}
+.modal-confirm {		
+	color: #636363;
+	width: 400px;
+}
+.modal-confirm .modal-content {
+	padding: 20px;
+	border-radius: 5px;
+	border: none;
+	text-align: center;
+	font-size: 14px;
+}
+.modal-confirm .modal-header {
+	border-bottom: none;   
+	position: relative;
+}
+.modal-confirm h4 {
+	text-align: center;
+	font-size: 26px;
+	margin: 30px 0 -10px;
+}
+.modal-confirm .close {
+	position: absolute;
+	top: -5px;
+	right: -2px;
+}
+.modal-confirm .modal-body {
+	color: #999;
+}
+.modal-confirm .modal-footer {
+	border: none;
+	text-align: center;		
+	border-radius: 5px;
+	font-size: 13px;
+	padding: 10px 15px 25px;
+}
+.modal-confirm .modal-footer a {
+	color: #999;
+}		
+.modal-confirm .icon-box {
+	width: 80px;
+	height: 80px;
+	margin: 0 auto;
+	border-radius: 50%;
+	z-index: 9;
+	text-align: center;
+	border: 3px solid #f15e5e;
+}
+.modal-confirm .icon-box i {
+	color: #f15e5e;
+	font-size: 46px;
+	display: inline-block;
+	margin-top: 13px;
+}
+.modal-confirm .btn, .modal-confirm .btn:active {
+	color: #fff;
+	border-radius: 4px;
+	background: #60c7c1;
+	text-decoration: none;
+	transition: all 0.4s;
+	line-height: normal;
+	min-width: 120px;
+	border: none;
+	min-height: 40px;
+	border-radius: 3px;
+	margin: 0 5px;
+}
+.modal-confirm .btn-secondary {
+	background: #c1c1c1;
+}
+.modal-confirm .btn-secondary:hover, .modal-confirm .btn-secondary:focus {
+	background: #a8a8a8;
+}
+.modal-confirm .btn-danger {
+	background: #f15e5e;
+}
+.modal-confirm .btn-danger:hover, .modal-confirm .btn-danger:focus {
+	background: #ee3535;
+}
+.trigger-btn {
+	display: inline-block;
+	margin: 100px auto;	
+}	
+.form-switch .form-check-input{
+     width: 4em;
+     height: 25px;
+     cursor: pointer;
+}
+.active{
+  color: green;
+}
+.inactive{
+   color:red;
+}
+</style>
+
+<body>
+	<div class="wrapper">
+	   <div th:insert="~{Faculty/sidebar :: sidebar}"></div>
+		<div class="main">
+		 	<div th:insert="~{Faculty/header :: header}"></div>
+			<main class="content">
+				<div class="container-fluid p-0">
+
+					<div class="row mb-2 mb-xl-3">
+						<div class="col-auto d-none d-sm-block">
+							<h3><strong>Notifications</strong></h3>
+						</div>
+
+						<div class="col-auto ml-auto text-right mt-n1">
+							<nav aria-label="breadcrumb">
+								<ol class="breadcrumb bg-transparent p-0 mt-1 mb-0">
+									<li class="breadcrumb-item"><a href="#">Faculty</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Notifications</li>
+								</ol>
+							</nav>
+						</div>
+				
+				<div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+						<h2>Manage <b>Notifications</b></h2>
+					</div>
+                                                                                  
+					<div class="col-sm-6">
+						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xe003;</i> <span>Generate Notification</span></a>
+						<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						
+					</div>
+                </div>
+            </div>
+            <div class="table-responsive">
+            <table id="example" class="table table-hover table-sm" style="font-size: 0.75rem">
+                <thead>
+                    <tr>
+                        <th>#</th>                      
+                        <th>Subject</th>
+                        <th>Content</th>
+                        <th>Generated By</th>
+                        <th>Generation Date</th>
+		                <th>Due Date</th>
+		                <th>Last Modified On</th>
+		                <th>Visibility</th>
+		                <th>Status</th>		
+		                <th>Document</th>		           
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:if="${notifications=='No Records Found'}">
+                      <td colspan="11" style="text-align:center;font-weight:bold">No Records Found</td>
+                    </tr>
+                    <tr th:if="${notifications!='No Records Found'}" th:each="notification,i:${notifications}">
+                        <td><span th:text="${i.index+1}"></span></td>
+                        <td><span th:text="${notification.subject}"></span></td>
+                        <td style="white-space:normal;max-width:400px;word-wrap: break-word;"><span th:text="${notification.content}"></span></td>
+                        <td><span th:text="${notification.user.getName()}"></span></td>
+                        <td><span th:text="${notification.generation_date}"></span></td>
+                        <td><span th:text="${notification.due_date}"></span></td>
+                        <td><span th:text="${notification.last_modified_date}"></span></td>
+                        <td><span th:text="${notification.visibility}"></span></td>
+                        <td th:if="${notification.status}"><span class="active">active</span></td>
+                        <td th:if="!${notification.status}"><span class="inactive">expired</span></td>
+                        <td>
+                            <a th:href="@{/media/download/} + ${notification.document.getNewFileName()}" class="download" th:data-id="${notification.document.getFileName()}">View Document</a>
+                        </td>
+                        <td>
+                            <a th:href="@{javascript:void(0)}" class="edit"  th:data-id="${notification.notification_id}" data-toggle="modal" data-target="#editEmployeeModal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            <a th:href="@{javascript:void(0)}" th:data-id="${notification.notification_id}" class="delete"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+    </div>
+	<!-- Add Modal HTML -->
+	<div id="addEmployeeModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form th:action="@{/generatenotification}" th:object="${notification}" enctype="multipart/form-data" class="register-form" id="register-form" action="signupAdmin" method="POST">
+					<div class="modal-header">						
+						<h4 class="modal-title">Generate Notification</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">					
+						<div class="form-group">
+							<label>Subject</label>
+							<input type="text" th:field="*{subject}" name="subject" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Content</label>
+							<textarea  th:field="*{content}" name="content" class="form-control" required></textarea>
+						</div>
+                       <div class="form-group">
+							<label>Due Date</label>
+							<input type="date" th:field="*{due_date}" name="due_date" class="form-control due_date" required>
+						</div>			
+			            <div class="form-group">
+							<label>Visibility</label>
+							<select th:field="*{visibility}" class="form-control example-multiple-selected" name="visibility"  multiple="multiple" required>
+							    <option value="ADMIN">Admin</option>
+							    <option value="FACULTY">Faculty</option>
+							    <option value="STUDENT">Student</option>
+							</select>
+						</div>	
+						<div class="form-group">
+							<label>Document</label>
+							<input type="file"  name="file" class="form-control">
+						</div>			
+                                                                                                          	                                                                                                          	
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+						<input type="submit" class="btn btn-success" value="Generate">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- Edit Modal HTML -->
+   <div class="myForm">
+	<div id="editEmployeeModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form  th:method="post" th:object="${notification}" class="register-form" id="edit-form">
+					<div class="modal-header">						
+						<h4 class="modal-title">Update Notification</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">					
+						<div class="form-group">
+							<label>Subject</label>
+							<input type="text" th:field="*{subject}" name="subject" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Content</label>
+							<textarea  th:field="*{content}" name="content" class="form-control" required></textarea>
+						</div>
+                       <div class="form-group">
+							<label>Due Date</label>
+							<input type="date" th:field="*{due_date}" name="due_date" class="form-control due_date" required>
+						</div>			
+			            <div class="form-group">
+							<label>Visibility</label>
+							<select th:field="*{visibility}" name="visibility" class="form-select example-multiple-selected" id="example-multiple-selected"  multiple="multiple"  required>
+							    <option value="ADMIN">Admin</option>
+							    <option value="FACULTY">Faculty</option>
+							    <option value="STUDENT">Student</option>
+							</select>
+						</div>	                                                                                  	
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+						<input type="submit" class="btn btn-success" id="editSubmit" value="Save">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+	
+	<div id="deleteEmployeeModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form>
+					<div class="modal-header">						
+						<h4 class="modal-title">Delete Notification</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div id="myModal" class="modal fade">
+<div class="text-center">
+	
+	<a href="#myModal" class="trigger-btn" data-toggle="modal">Click to Open Confirm Modal</a>
+</div>
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header flex-column">
+				<div class="icon-box">
+					<i class="material-icons">&#xE5CD;</i>
+				</div>	
+                                                            <h4 class="modal-title w-100">Are you sure?</h4>	
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body">
+				<p>Do you really want to delete these records? This process cannot be undone.</p>
+			</div>
+			<div class="modal-footer justify-content-center">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+				<button type="button" class="btn btn-danger">Yes, delete it!</button>
+			</div>
+                                                     </div>
+	                                  </div>
+                                                    </div>     
+				</form>
+			</div>
+		</div>
+	</div>	
+			</main>
+
+			 <div th:insert="~{footer :: footer}"></div>
+		</div>
+	</div>
+	
+	<!-- <script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.2.0/mdb.min.js"
+></script>-->
+<script>
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+<script>
+$(function() {
+	var today=new Date();
+	var year= today.getFullYear();
+	var month= ("0" + (today.getMonth()+1)).slice(-2);
+	var day= ("0" + today.getDate()).slice(-2);
+	var todayDate= (year +"-"+ month +"-"+ day);
+	
+    $('.due_date').attr('min',todayDate);
+} );
+</script>
+	<script>
+  /*  $(document).ready(function(){
+        $('.download').on('click', function(event){
+            //prevents redirection to blank page with JSON-Task-Object
+            var fileName=$(this).data("id");
+            var href = "/media/download/"+fileName;
+            
+            $.get(href, function(){
+
+        });
+    });
+  });*/
+</script>
+    <script>
+    $(document).ready(function(){
+        $('.edit').on('click', function(event){
+            //prevents redirection to blank page with JSON-Task-Object
+            event.preventDefault();
+            var notification_id=$(this).data("id");
+            var href = "/findNotification/"+notification_id;
+            
+            $.get(href, function(notification){
+            	console.log(notification);
+            	var visibility= notification.visibility.split(",");
+            	$options=  $('.myForm #visibility');
+            	console.log(visibility);
+            	$('.myForm #edit-form').attr('action',"/updatenotification/"+notification.notification_id);
+                $('.myForm #subject').val(notification.subject);
+                $('.myForm #content').val(notification.content);
+                $('.myForm #due_date').val(notification.due_date);
+                $('.myForm #example-multiple-selected').val(visibility);
+                $(".myForm #example-multiple-selected").multiselect("refresh");
+            });
+            $('.myForm #editEmployeeModal').modal();
+        });
+    });
+</script>
+<script>
+    $(document).ready(function(){
+       	$('.delete').on('click', function(event){
+            //prevents redirection to blank page with JSON-Task-Object
+            event.preventDefault();
+            var notification_id=$(this).data("id");
+            var url = "/deletenotification/"+notification_id;
+            $.post(url, function(notification){
+            	window.location.reload(true);
+            	$('#deleteEmployeeModal').modal();
+        });
+    });
+  });
+</script>
+<script>
+   /* $(document).ready(function(){
+       	console.log("hi");
+       	debugger;
+        $('#editSubmit').on('click', function(event){
+            //prevents redirection to blank page with JSON-Task-Object
+            event.preventDefault();
+            var url = "/updateuser";
+            var formData=$('#edit-form').serialize;
+            console.log(formData);
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: formData,
+                dataType: 'json', // lowercase is always preferered though jQuery does it, too.
+                success: function(user){
+                debugger;
+            	alert("wow");
+        }
+    });
+ });
+ });*/
+</script>       
+	<script>
+		$(function() {
+			var ctx = document.getElementById('chartjs-dashboard-line').getContext("2d");
+			var gradient = ctx.createLinearGradient(0, 0, 0, 225);
+			gradient.addColorStop(0, 'rgba(215, 227, 244, 1)');
+			gradient.addColorStop(1, 'rgba(215, 227, 244, 0)');
+			// Line chart
+			new Chart(document.getElementById("chartjs-dashboard-line"), {
+				type: 'line',
+				data: {
+					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+					datasets: [{
+						label: "Sales ($)",
+						fill: true,
+						backgroundColor: gradient,
+						borderColor: window.theme.primary,
+						data: [
+							2115,
+							1562,
+							1584,
+							1892,
+							1587,
+							1923,
+							2566,
+							2448,
+							2805,
+							3438,
+							2917,
+							3327
+						]
+					}]
+				},
+				options: {
+					maintainAspectRatio: false,
+					legend: {
+						display: false
+					},
+					tooltips: {
+						intersect: false
+					},
+					hover: {
+						intersect: true
+					},
+					plugins: {
+						filler: {
+							propagate: false
+						}
+					},
+					scales: {
+						xAxes: [{
+							reverse: true,
+							gridLines: {
+								color: "rgba(0,0,0,0.0)"
+							}
+						}],
+						yAxes: [{
+							ticks: {
+								stepSize: 1000
+							},
+							display: true,
+							borderDash: [3, 3],
+							gridLines: {
+								color: "rgba(0,0,0,0.0)"
+							}
+						}]
+					}
+				}
+			});
+		});
+	</script>
+	<script>
+		$(function() {
+			// Pie chart
+			new Chart(document.getElementById("chartjs-dashboard-pie"), {
+				type: 'pie',
+				data: {
+					labels: ["Chrome", "Firefox", "IE"],
+					datasets: [{
+						data: [4306, 3801, 1689],
+						backgroundColor: [
+							window.theme.primary,
+							window.theme.warning,
+							window.theme.danger
+						],
+						borderWidth: 5
+					}]
+				},
+				options: {
+					responsive: !window.MSInputMethodContext,
+					maintainAspectRatio: false,
+					legend: {
+						display: false
+					},
+					cutoutPercentage: 75
+				}
+			});
+		});
+	</script>
+	<script>
+		$(function() {
+			// Bar chart
+			new Chart(document.getElementById("chartjs-dashboard-bar"), {
+				type: 'bar',
+				data: {
+					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+					datasets: [{
+						label: "This year",
+						backgroundColor: window.theme.primary,
+						borderColor: window.theme.primary,
+						hoverBackgroundColor: window.theme.primary,
+						hoverBorderColor: window.theme.primary,
+						data: [54, 67, 41, 55, 62, 45, 55, 73, 60, 76, 48, 79],
+						barPercentage: .75,
+						categoryPercentage: .5
+					}]
+				},
+				options: {
+					maintainAspectRatio: false,
+					legend: {
+						display: false
+					},
+					scales: {
+						yAxes: [{
+							gridLines: {
+								display: false
+							},
+							stacked: false,
+							ticks: {
+								stepSize: 20
+							}
+						}],
+						xAxes: [{
+							stacked: false,
+							gridLines: {
+								color: "transparent"
+							}
+						}]
+					}
+				}
+			});
+		});
+	</script>
+	<script>
+		$(function() {
+			$("#world_map").vectorMap({
+				map: "world_mill",
+				normalizeFunction: "polynomial",
+				hoverOpacity: .7,
+				hoverColor: false,
+				regionStyle: {
+					initial: {
+						fill: "#e3eaef"
+					}
+				},
+				markerStyle: {
+					initial: {
+						"r": 9,
+						"fill": window.theme.primary,
+						"fill-opacity": .95,
+						"stroke": "#fff",
+						"stroke-width": 7,
+						"stroke-opacity": .4
+					},
+					hover: {
+						"stroke": "#fff",
+						"fill-opacity": 1,
+						"stroke-width": 1.5
+					}
+				},
+				backgroundColor: "transparent",
+				zoomOnScroll: false,
+				markers: [{
+						latLng: [31.230391, 121.473701],
+						name: "Shanghai"
+					},
+					{
+						latLng: [28.704060, 77.102493],
+						name: "Delhi"
+					},
+					{
+						latLng: [6.524379, 3.379206],
+						name: "Lagos"
+					},
+					{
+						latLng: [35.689487, 139.691711],
+						name: "Tokyo"
+					},
+					{
+						latLng: [23.129110, 113.264381],
+						name: "Guangzhou"
+					},
+					{
+						latLng: [40.7127837, -74.0059413],
+						name: "New York"
+					},
+					{
+						latLng: [34.052235, -118.243683],
+						name: "Los Angeles"
+					},
+					{
+						latLng: [41.878113, -87.629799],
+						name: "Chicago"
+					},
+					{
+						latLng: [51.507351, -0.127758],
+						name: "London"
+					},
+					{
+						latLng: [40.416775, -3.703790],
+						name: "Madrid"
+					}
+				]
+			});
+			setTimeout(function() {
+				$(window).trigger('resize');
+			}, 250)
+		});
+	</script>
+	<script>
+		$(function() {
+			$('#datetimepicker-dashboard').datetimepicker({
+				inline: true,
+				sideBySide: false,
+				format: 'L'
+			});
+		});
+	</script>
+
+</body>
+
+</html>
