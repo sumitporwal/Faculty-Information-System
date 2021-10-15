@@ -1,5 +1,6 @@
 package DAO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -87,14 +88,13 @@ public class LeaveApplication_DAO_Imp implements LeaveApplication_DAO {
 		return leave_application1;
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public List<LeaveApplication> getLeaveApplicationListByDepartment(String department) {
 		Session currentSession = sessionfactory.getCurrentSession();
 		Query<User> query = currentSession.createQuery("from User where department=:department", User.class);
 		query.setParameter("department", department);
 		List<User> user = query.getResultList();
-		List<LeaveApplication> list = null;
+		List<LeaveApplication> list = new ArrayList<>();
 		for (int i = 0; i < user.size(); i++) {
 			Query<LeaveApplication> query1 = currentSession.createQuery("from LeaveApplication where user_id=:user_id",
 					LeaveApplication.class);

@@ -178,7 +178,7 @@
               </a>
 
 							<a style="margin:-27px 15px -15px 15px" class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-toggle="dropdown">
-                                 <span th:if="${additional_user_details1}"><span th:if="${additional_user_details1.getPhoto()!=null}"><img alt="Charles Hall" th:src="'uploads/Images/'+${additional_user_details1.getPhoto().getNewFileName()}" class="rounded-circle img-responsive mt-2" width="40" height="40" /></span>
+                                 <span th:if="${additional_user_details1}"><span th:if="${additional_user_details1.getPhoto()!=null}"><img alt="Charles Hall" th:src="'/uploads/Images/'+${additional_user_details1.getPhoto().getNewFileName()}" class="rounded-circle img-responsive mt-2" width="40" height="40" /></span>
                                                    <span th:if="${additional_user_details1.getPhoto()==null}"><i class="bi bi-person-circle" style="font-size:40px"></i></span>
                                  </span>
 					             <span th:if="!${additional_user_details1}"><i class="bi bi-person-circle" style="font-size:40px"></i></span>

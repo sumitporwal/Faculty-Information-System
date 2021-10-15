@@ -87,7 +87,7 @@ public class Login_Controller {
 	        String loginMessage = "";
 	        if (failed != null) {
 	            loginMessage = "Wrong Credentials";
-	            model.addAttribute("loginMessage", loginMessage);
+	            model.addAttribute("error", loginMessage);
 	            return "signin";
 	        }
 	        if (denied != null) {

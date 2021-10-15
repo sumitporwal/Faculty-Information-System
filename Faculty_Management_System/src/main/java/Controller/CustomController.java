@@ -56,7 +56,7 @@ public class CustomController {
         UserDetails userDetails = (UserDetails) a.getPrincipal();
         User user = userService.findUserByEmail(userDetails.getUsername());
         if (user.getRoles().getRole_name().equals("SUPER_ADMIN")) {
-            logger.info("IN CUSTOMCONTROLLER: role is super admin");
+            logger.info("IN CUSTOMCONTROLLER: role is super admin");       
             return "redirect:superadmin/admindashboard";
         }
         else if (user.getRoles().getRole_name().equals("ADMIN")) {
