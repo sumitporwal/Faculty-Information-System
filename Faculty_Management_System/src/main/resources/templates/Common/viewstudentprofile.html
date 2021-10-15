@@ -49,18 +49,6 @@
 <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap5.min.js"></script>
 </head>
 
-<style>
-body {
-        color: #566787;
-		background: #f5f5f5;
-		font-family: 'Varela Round', sans-serif;
-		font-size: 13px;
-	}
-.content{
-  padding: 1rem 1rem 0rem;
-}
-</style>
-
 <body>
 	<div class="wrapper">
 		<div th:if="${session.CurrentLoggedInUser.getRoles().getRole_id()}==1">
@@ -169,7 +157,7 @@ body {
 												</div>
 												<div class="col-md-4">
 														<div class="text-center" style="margin-top:-19px">
-														    <span th:if="${additional_user_details2}"><span th:if="${additional_user_details2.getPhoto()!=null}"><img alt="Charles Hall" th:src="'/uploads/Images/'+${additional_user_details2.getPhoto().getNewFileName()}" class="rounded-circle img-responsive mt-2" width="128" height="128" /></span>
+														    <span th:if="${additional_user_details2}"><span th:if="${additional_user_details2.getPhoto()!=null}"><img alt="Charles Hall" th:src="'uploads/Images/'+${additional_user_details2.getPhoto().getNewFileName()}" class="rounded-circle img-responsive mt-2" width="128" height="128" /></span>
                                                                   <span th:if="${additional_user_details2.getPhoto()==null}"><i class="bi bi-person-circle" style="font-size:128px"></i></span>
                                                             </span>
 					                                        <span th:if="!${additional_user_details2}"><i class="bi bi-person-circle" style="font-size:128px"></i></span>
@@ -308,7 +296,10 @@ body {
 														<label>Mother's Occupation:</label>
 														<input type="text" th:field="*{mother_occupation}" id="mother_occupation" class="form-control">
 													</div>
-												</div>							
+												</div>
+
+											<button type="submit" class="btn btn-primary">Save changes</button>									
+
 									</div>
 								</div>
 								</form>

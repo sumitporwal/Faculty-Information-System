@@ -7,9 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign In</title>
 
+ 
     <link rel="stylesheet" th:href="@{/fonts/material-icon/css/material-design-iconic-font.min.css}">
+
+
     <link rel="stylesheet" th:href="@{/css/style.css}">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <style>
         .main{
              padding-top:4%;
@@ -36,20 +38,14 @@
                     <div class="signin-form">
                         <h2 class="form-title">Sign In</h2>
                         <form method="POST" th:action="@{/signin}" th:object="${user}" class="register-form" id="login-form" action="signin" >
-                            <div th:if="${param.error}">
-                                 <p class="text-danger" style="margin-top:-25px;font-size:16px;color: red">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
-                            </div>
-         
-                           <div th:if="${param.logout}">
-                                <p class="text-warning">You have been logged out.</p>
-                           </div>
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input class="form-control" type="text" th:field="*{email}" name="email" id="your_name" placeholder="Username or User Id"/>
+                                <input type="text" th:field="*{email}" name="email" id="your_name" placeholder="Username or User Id"/>
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input class="form-control" type="password" th:field="*{password}" name="password" id="your_pass" placeholder="Password">                           
+                                <input type="password" th:field="*{password}" name="password" id="your_pass" placeholder="Password"/>
+                                 
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />

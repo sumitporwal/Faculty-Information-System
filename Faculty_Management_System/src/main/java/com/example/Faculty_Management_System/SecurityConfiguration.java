@@ -62,7 +62,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception{
 		//super.configure(http);
 		  http.authorizeRequests()
-		   .antMatchers("/js/**", "/css/**","/images/**","/img/**","/vendor/**","/fonts/**","/uploads/**","/favicon.ico/**").permitAll()
+		   .antMatchers("/js/**", "/css/**","/images/**","/img/**","/vendor/**","/fonts/**","/favicon.ico/**").permitAll()
 		   .antMatchers("/").permitAll()
 		   .antMatchers("/signupAdmin").permitAll()
 		   .antMatchers("/signup").permitAll()
