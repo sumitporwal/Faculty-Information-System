@@ -388,7 +388,7 @@ public class SuperAdminController {
 	     model.addAttribute("vacancy", vacancy);
 	     AdditionalUserDetails additional_user_details1=additionaluserdetails_service.findAdditionalUserDetailsById(user1.getUser_id());
 	     model.addAttribute("additional_user_details1", additional_user_details1);
-	     if(vacancy_service.getVacancyListByUser(user1.getUser_id())==null) {
+	     if(vacancy_service.getVacancyListByUser(user1.getUser_id())==null || vacancy_service.getVacancyListByUser(user1.getUser_id()).size()==0) {
 	        model.addAttribute("vacancies", "No Records Found");
 	     }else {
 		    model.addAttribute("vacancies",vacancy_service.getVacancyListByUser(user1.getUser_id()));

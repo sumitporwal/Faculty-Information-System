@@ -12,7 +12,7 @@
 
 	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
 
-	<title>Notifications | Faculty</title>
+	<title>Notifications | Student</title>
 
      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
@@ -406,7 +406,7 @@ div.table-responsive>div.dataTables_wrapper>div.row{
                         <td th:if="${notification.status}"><span class="active">active</span></td>
                         <td th:if="!${notification.status}"><span class="inactive">expired</span></td>
                         <td>
-                            <a th:href="@{/media/download/} + ${notification.document.getNewFileName()}" class="download" th:data-id="${notification.document.getFileName()}">View Document</a>
+                            <a th:href="@{/media/download/} + ${notification.document.getNewFileName()}" target="_blank" class="download" th:data-id="${notification.document.getFileName()}">View Document</a>
                         </td>
                         <td>
                             <a th:href="@{javascript:void(0)}" class="edit"  th:data-id="${notification.notification_id}" data-toggle="modal" data-target="#editEmployeeModal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
